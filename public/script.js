@@ -6,3 +6,7 @@ ledButton.addEventListener("click", ()=>{
     console.log("emiting click")
     socket.emit("click", "value")
 })
+
+socket.on("test", ()=>{
+    alert("test")
+})

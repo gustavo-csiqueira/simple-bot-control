@@ -10,13 +10,14 @@ const httpServer = createServer(app)
 const io = new Server(httpServer)
 
 const pagesPath = url.fileURLToPath(new URL("./public", import.meta.url))
+const configPath = url.fileURLToPath(new URL("config/bots_configs/bot1_config.json", import.meta.url))
 
-const board_controller = new boardController("./config/bots_configs")
+const board_controller = new boardController(configPath)
 
 app.use(express.static(pagesPath))
 
 io.on("connection", (socket)=>{
-    console.log(`New user: ${socket.id}`)
+    socket.emit("test")
 
     socket.on("click", (value)=>{
         board_controller.ledInversion()
