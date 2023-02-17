@@ -1,6 +1,6 @@
 import johnny_five from "johnny-five"
 
-class boardController {
+export default class boardController {
     board; actuators = new Map;
 
     constructor(config_file){
@@ -26,5 +26,3 @@ class boardController {
     }
     
 }
-
-export default board_controller;
