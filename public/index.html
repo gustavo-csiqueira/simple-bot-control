@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBotControl</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <header>
+        <h1>MyBotControl</h1>
+        <div class="config">
+            <select name="bots" id="bots">
+                <option value="bot1">Arquivo de configuração</option>
+            </select>
+        </div>
+    </header>
+
+    <div id="dashboard">
+        <div name="controller" id="controller" class="cell">
+            <label for="controller"><h2>Atuadores</h2></label>
+            <div class="wrapper">
+                <button id="LED">ALTERAR LED</button>
+            </div>
+        </div>
+        <div name="sensors" id="sensors" class="cell">
+            <label for="sensors"><h2>Sensores</h2></label>
+            
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

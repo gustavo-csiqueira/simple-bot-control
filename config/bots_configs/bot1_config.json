@@ -1,0 +1,15 @@
+{
+    "Info": {
+
+    },
+    "Actuators": {
+        "LED1": {
+            "type": "led",
+            "label": "LED do pino 13",
+            "pin": [13]
+        }
+    },
+    "Sensors":{
+
+    }
+}
