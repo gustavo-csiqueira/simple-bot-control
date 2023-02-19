@@ -1,8 +1,9 @@
 import johnny_five from "johnny-five"
 import getConfigs from "./getConfigs.js";
+import {v4 as uuidV4} from "uuid"
 
 export default class boardController {
-    board; actuators = new Map;
+    board; externals={ actuators: new Map, sensors: new Map };config;
 
     constructor(config_filepath){
         try{
@@ -13,19 +14,40 @@ export default class boardController {
             console.log("Board not connected")
         }
         
-        console.log(getConfigs(config_filepath))
+        this.config = getConfigs(config_filepath)
 
         this.board.on("ready", ()=>{
+            this.configureAll()
             console.log("Board ready")
-            this.actuators['led'] = new johnny_five.Led(13)
+            
 
         })
 
     }
 
-    ledInversion(){
-        this.actuators.led.toggle()
+    configureAll(){
+        const { Actuators: actuators, sensors } = this.config
 
+        console.log(actuators)
+
+        const createActuator = {
+            led: (pin)=>{
+                this.externals.actuators["led1"] = new johnny_five.Led(pin[0])
+            },
+            servo: (pin)=>{
+                this.externals.actuators["servo"] = new johnny_five.Servo(pin[0])
+            }
+
+        }
+        
+        actuators.forEach(actuator => {
+            createActuator[actuator.type](actuator.pin)
+        });
+
+    }
+
+    toggleLed(){
+        this.externals.actuators["led1"].toggle()
     }
     
 }

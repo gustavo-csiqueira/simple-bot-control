@@ -20,7 +20,7 @@ io.on("connection", (socket)=>{
     socket.emit("test")
 
     socket.on("click", (value)=>{
-        board_controller.ledInversion()
+        board_controller.toggleLed()
     })
 
 })

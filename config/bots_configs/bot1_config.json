@@ -2,13 +2,13 @@
     "Info": {
 
     },
-    "Actuators": {
-        "LED1": {
+    "Actuators":[ 
+        {
             "type": "led",
             "label": "LED do pino 13",
             "pin": [13]
         }
-    },
+    ],
     "Sensors":{
 
     }
