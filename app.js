@@ -3,9 +3,10 @@ import express from "express";
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import boardController from './modules/board-comunication/firmata-connect.js'
+import getConfigs from './modules/board-comunication/getConfigs.js';
 
 const app = express()
-const port = 3000
+const port = 2999
 const httpServer = createServer(app)
 const io = new Server(httpServer)
 
@@ -17,9 +18,9 @@ const board_controller = new boardController(configPath)
 app.use(express.static(pagesPath))
 
 io.on("connection", (socket)=>{
-    socket.emit("test")
+    socket.emit("config", getConfigs(configPath))
 
-    socket.on("click", (value)=>{
+    socket.on("alter", (value)=>{
         board_controller.toggleLed()
     })
 

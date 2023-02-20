@@ -69,7 +69,7 @@ header {
 
 }
 
-.cell > .wrapper > button {
+.module > input[type="button"] {
     /* Colors */
     background-color: var(--secundary-color);
     color: var(--main-color);
@@ -87,13 +87,11 @@ header {
 
 }
 
-.cell > .wrapper > button:hover {
+.module > input:hover {
     /* Colors */
     background-color: var(--tertiary-color);
     color: var(--main-color);
 
-    /* Space */
-    padding: 8px;
 }
 
 #controller { grid-area: 1 / 1 / 11 / 15; }

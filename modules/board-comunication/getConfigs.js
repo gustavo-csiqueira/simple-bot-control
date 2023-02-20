@@ -5,9 +5,10 @@ export default function getConfigs(path){
     const configs = JSON.parse(readFileSync(path, 'utf-8'))
 
     configs.Actuators.forEach(actuator => {
-        if(!actuator.id){
-            actuator.id = uuid_v4()
-        }
+        if(!actuator.range) actuator.range = 2;
+
+        if(!actuator.id) actuator.id = uuid_v4();
+
     });
 
     const newContent = JSON.stringify(configs)
