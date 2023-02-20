@@ -31,23 +31,24 @@ export default class boardController {
         console.log(actuators)
 
         const createActuator = {
-            led: (pin)=>{
-                this.externals.actuators["led1"] = new johnny_five.Led(pin[0])
+            led: ({id, pin})=>{
+                this.externals.actuators[id] = new johnny_five.Led(pin[0])
             },
-            servo: (pin)=>{
-                this.externals.actuators["servo"] = new johnny_five.Servo(pin[0])
+            servo: ({id, pin})=>{
+                this.externals.actuators[id] = new johnny_five.Servo(pin[0])
             }
 
         }
         
         actuators.forEach(actuator => {
-            createActuator[actuator.type](actuator.pin)
+            createActuator[actuator.type](actuator)
+            this.id = actuator.id
         });
 
     }
 
     toggleLed(){
-        this.externals.actuators["led1"].toggle()
+        this.externals.actuators[this.id].toggle()
     }
     
 }

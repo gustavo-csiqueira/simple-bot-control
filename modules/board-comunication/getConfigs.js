@@ -1,7 +1,18 @@
-import { readFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
+import { v4 as uuid_v4 } from 'uuid';
 
 export default function getConfigs(path){
     const configs = JSON.parse(readFileSync(path, 'utf-8'))
+
+    configs.Actuators.forEach(actuator => {
+        if(!actuator.id){
+            actuator.id = uuid_v4()
+        }
+    });
+
+    const newContent = JSON.stringify(configs)
+
+    writeFileSync(path, newContent)
 
     return configs
 
