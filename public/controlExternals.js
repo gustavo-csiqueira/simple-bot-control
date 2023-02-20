@@ -13,15 +13,26 @@ export default class controlExternals {
             element = document.createElement("input");
             element.setAttribute("type", "range");
             element.setAttribute("min", "0");
-            element.setAttribute("max", toString(range));
+            element.setAttribute("max", range);
+            element.value = Math.floor(range/2)
 
             if (range > MIN_NUMBER_FOR_INPUT_NUMBER) {
                 const other = document.createElement("input");
                 other.setAttribute("type", "number");
                 other.setAttribute("min", "0");
-                other.setAttribute("max", toString(range));
+                other.setAttribute("max", range);
+                other.value = element.value
 
                 father.appendChild(other);
+
+                element.addEventListener("change", ()=>{
+                    other.value = element.value
+                })
+
+                other.addEventListener("change", ()=>{
+                    element.value = other.value
+                })
+
             }
 
         }

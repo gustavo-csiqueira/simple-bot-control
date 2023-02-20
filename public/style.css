@@ -108,28 +108,8 @@ header {
 
 .module > input {
     width: 100%;
-}
-
-.module > input[type="number"]{ 
-    width: 15%; 
-}
-
-.module > input[type="button"] {
-    /* Colors */
-    background-color: var(--secundary-color);
-    color: var(--main-color);
-
-    /* Space */
-    padding: 7px;
-
-    /* Border */
     border: none;
     outline: none;
-    border-radius: 15px;
-
-    /* Transitions */
-    transition: all 500ms;
-
 }
 
 .module > input:hover {
@@ -145,6 +125,47 @@ header {
     color: var(--tertiary-color);
 
 }
+
+.module > input[type="number"]{ 
+    width: 15%; 
+
+    font-size: medium;
+    font-weight: 400;
+
+    background-color: initial;
+}
+
+.module > input[type="number"]:hover{ 
+    background-color: initial;
+    color: initial;
+    width: 15%; 
+    
+}
+
+.module > input[type="number"]:active{ 
+    /* Colors */
+    background-color: initial;
+    color: initial;
+    
+}
+
+.module > input[type="button"] {
+    /* Colors */
+    background-color: var(--secundary-color);
+    color: var(--main-color);
+
+    /* Space */
+    padding: 7px;
+
+    /* Border */
+    border-radius: 15px;
+
+    /* Transitions */
+    transition: all 500ms;
+
+}
+
+
 
 #controller { grid-area: 1 / 1 / 11 / 15; }
 #sensors { grid-area: 1 / 15 / 11 / 21; }
