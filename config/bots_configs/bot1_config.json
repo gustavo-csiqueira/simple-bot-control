@@ -1,15 +1,1 @@
-{
-    "Info": {
-
-    },
-    "Actuators":[ 
-        {
-            "type": "led",
-            "label": "LED do pino 13",
-            "pin": [13]
-        }
-    ],
-    "Sensors":{
-
-    }
-}
+{"Info":{},"Actuators":[{"type":"led","label":"LED do pino 13","pin":[13],"range":2,"id":"28ce8451-e8d9-4101-ba65-13df83be1020"},{"type":"servo","label":"Eixo 1","pin":[1],"range":90,"id":"901bea7e-880b-45f1-8c1a-fe8318ea0299"}],"Sensors":{}}

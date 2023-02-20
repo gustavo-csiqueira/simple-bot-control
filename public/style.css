@@ -22,6 +22,8 @@ body {
     height: 100vh;
     width: 100vw;
 
+    overflow: hidden;
+
 }
 
 header {
@@ -69,6 +71,49 @@ header {
 
 }
 
+.modules-group {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    gap: 10px;
+
+}
+
+.module {
+    /* Space */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1vmax;
+    height: fit-content;
+    width: 50%;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    /* Border */
+    border: 1px solid var(--bg-color);
+    border-radius: 1vmax;
+
+    /* Colors */
+    background-color: var(--main-color);
+
+}
+
+.module > label {
+    font-weight: 500;
+    font-size: large;
+
+}
+
+.module > input {
+    width: 100%;
+}
+
+.module > input[type="number"]{ 
+    width: 15%; 
+}
+
 .module > input[type="button"] {
     /* Colors */
     background-color: var(--secundary-color);
@@ -91,6 +136,13 @@ header {
     /* Colors */
     background-color: var(--tertiary-color);
     color: var(--main-color);
+
+}
+
+.module > input:active {
+    /* Colors */
+    background-color: var(--main-color);
+    color: var(--tertiary-color);
 
 }
 

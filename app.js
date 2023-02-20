@@ -11,7 +11,7 @@ const httpServer = createServer(app)
 const io = new Server(httpServer)
 
 const pagesPath = url.fileURLToPath(new URL("./public", import.meta.url))
-const configPath = url.fileURLToPath(new URL("config/bots_configs/bot1_config_copy.json", import.meta.url))
+const configPath = url.fileURLToPath(new URL("config/bots_configs/bot1_config.json", import.meta.url))
 
 const board_controller = new boardController(configPath)
 
