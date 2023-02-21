@@ -41,13 +41,13 @@ export default class boardController {
         
         Actuators.forEach(actuator => {
             createActuator[actuator.type](actuator)
-            this.id = actuator.id
+
         });
 
     }
 
     toggle({id, data}){
-        const external = this.externals.actuators[this.id]
+        const external = this.externals.actuators[id]
         let type;
 
         this.config.Actuators.forEach(({id: ID, type: TYPE}) => {
@@ -58,12 +58,13 @@ export default class boardController {
         })
 
         console.log(`ID: ${id} - TYPE: ${type} - DATA: ${data}`)
-        this.externals.actuators[this.id].toggle()
 
         switch(type) {
             case "led":
-                console.log("ok")
-                // this.externals.actuators[this.id].on()
+                external.toggle()
+                break;
+            case "servo":
+                external.to(data)
                 break;
         
         } 
