@@ -72,13 +72,14 @@ header {
 }
 
 .modules-group {
-    display: flex;
-    height: 100%;
+    display: inline-flex;
     width: 100%;
 
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: flex-start;
 
+    gap: 10px;
 
 }
 
@@ -89,7 +90,7 @@ header {
     align-items: center;
     padding: 1vmax;
     height: fit-content;
-    width: 47%;
+    width: calc(50% - 5px);
     flex-wrap: wrap;
     gap: 5px;
 
