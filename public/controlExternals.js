@@ -2,12 +2,17 @@ const MIN_NUMBER_FOR_INPUT_NUMBER = 7
 
 export default class controlExternals {
     constructor({range, father, document, emitChange, id}) {
+        const ICONS_DIR = "./assets/icons/"
+        
         let element;
 
         if (range <= 2) {
-            element = document.createElement("input");
-            element.setAttribute("type", "button");
-            element.setAttribute("value", "LIGAR");
+
+            element = document.createElement("button");
+            const powerIcon = document.createElement("img")
+            powerIcon.setAttribute("src", `${ICONS_DIR}power_ico.svg`)
+            console.log(powerIcon)
+            element.appendChild(powerIcon)
 
             element.addEventListener("click", ()=>{
                 emitChange({id, data: -1})

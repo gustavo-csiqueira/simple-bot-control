@@ -108,7 +108,7 @@ header {
 
 }
 
-.module > input {
+.module > input, button{
     width: 100%;
     border: none;
     outline: none;
@@ -123,21 +123,7 @@ header {
     background-color: initial;
 }
 
-.module > input[type="number"]:hover{ 
-    background-color: initial;
-    color: initial;
-    width: 15%; 
-    
-}
-
-.module > input[type="number"]:active{ 
-    /* Colors */
-    background-color: initial;
-    color: initial;
-    
-}
-
-.module > input[type="button"] {
+.module > button {
     /* Colors */
     background-color: var(--secundary-color);
     color: var(--main-color);
@@ -153,14 +139,18 @@ header {
 
 }
 
-.module > input:hover {
+.module > button > img {
+    height: 4vh;
+}
+
+.module > button:hover {
     /* Colors */
     background-color: var(--tertiary-color);
     color: var(--main-color);
 
 }
 
-.module > input:active {
+.module > button:active {
     /* Colors */
     background-color: var(--main-color);
     color: var(--tertiary-color);
