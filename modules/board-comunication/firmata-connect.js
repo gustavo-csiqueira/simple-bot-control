@@ -1,6 +1,5 @@
 import johnny_five from "johnny-five"
 import getConfigs from "./getConfigs.js";
-import {v4 as uuidV4} from "uuid"
 
 export default class boardController {
     board; externals={ actuators: new Map, sensors: new Map };config;
@@ -26,9 +25,9 @@ export default class boardController {
     }
 
     configureAll(){
-        const { Actuators: actuators, sensors } = this.config
+        const { Actuators, Sensors } = this.config
 
-        console.log(actuators)
+        console.log(Actuators)
 
         const createActuator = {
             led: ({id, pin})=>{
@@ -40,15 +39,34 @@ export default class boardController {
 
         }
         
-        actuators.forEach(actuator => {
+        Actuators.forEach(actuator => {
             createActuator[actuator.type](actuator)
             this.id = actuator.id
         });
 
     }
 
-    toggleLed(){
+    toggle({id, data}){
+        const external = this.externals.actuators[this.id]
+        let type;
+
+        this.config.Actuators.forEach(({id: ID, type: TYPE}) => {
+            if(id === ID){
+                type = TYPE
+                
+            }
+        })
+
+        console.log(`ID: ${id} - TYPE: ${type} - DATA: ${data}`)
         this.externals.actuators[this.id].toggle()
+
+        switch(type) {
+            case "led":
+                console.log("ok")
+                // this.externals.actuators[this.id].on()
+                break;
+        
+        } 
     }
     
 }

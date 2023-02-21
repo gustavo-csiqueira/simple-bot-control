@@ -20,12 +20,12 @@ app.use(express.static(pagesPath))
 io.on("connection", (socket)=>{
     socket.emit("config", getConfigs(configPath))
 
-    socket.on("alter", (value)=>{
-        board_controller.toggleLed()
+    socket.on("change", (data)=>{
+        board_controller.toggle(data)
     })
 
 })
 
 httpServer.listen(port, ()=>{
-    console.log("Listening on http://localhost:3000")
+    console.log(`Listening on http://localhost:${port}`)
 })

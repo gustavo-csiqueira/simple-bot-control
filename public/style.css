@@ -76,7 +76,9 @@ header {
     height: 100%;
     width: 100%;
 
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
 
 }
 
@@ -87,7 +89,7 @@ header {
     align-items: center;
     padding: 1vmax;
     height: fit-content;
-    width: 50%;
+    width: 47%;
     flex-wrap: wrap;
     gap: 5px;
 
@@ -110,20 +112,6 @@ header {
     width: 100%;
     border: none;
     outline: none;
-}
-
-.module > input:hover {
-    /* Colors */
-    background-color: var(--tertiary-color);
-    color: var(--main-color);
-
-}
-
-.module > input:active {
-    /* Colors */
-    background-color: var(--main-color);
-    color: var(--tertiary-color);
-
 }
 
 .module > input[type="number"]{ 
@@ -165,7 +153,19 @@ header {
 
 }
 
+.module > input:hover {
+    /* Colors */
+    background-color: var(--tertiary-color);
+    color: var(--main-color);
 
+}
+
+.module > input:active {
+    /* Colors */
+    background-color: var(--main-color);
+    color: var(--tertiary-color);
+
+}
 
 #controller { grid-area: 1 / 1 / 11 / 15; }
 #sensors { grid-area: 1 / 15 / 11 / 21; }

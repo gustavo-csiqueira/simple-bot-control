@@ -10,6 +10,16 @@ export function createActuatorModule({ id, type, label, range }, document) {
     actuator_module.innerHTML = `<label for=${id}>${label}</label>`;
 
     actuatorModulesGroup.appendChild(actuator_module);
-    new controlExternals({range, father: actuator_module, document});
+    new controlExternals({range, father: actuator_module, document, emitChange, id});
 
+}
+
+const listeners = new Set
+
+function emitChange(params){
+    listeners.forEach( listener => { listener(params) } )
+}
+
+export function listenActiveObjects(cb){
+    listeners.add(cb)
 }

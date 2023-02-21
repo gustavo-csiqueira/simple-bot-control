@@ -1,13 +1,17 @@
 const MIN_NUMBER_FOR_INPUT_NUMBER = 7
 
 export default class controlExternals {
-    constructor({range, father, document}) {
+    constructor({range, father, document, emitChange, id}) {
         let element;
 
         if (range <= 2) {
             element = document.createElement("input");
             element.setAttribute("type", "button");
             element.setAttribute("value", "LIGAR");
+
+            element.addEventListener("click", ()=>{
+                emitChange({id, data: -1})
+            })
 
         } else {
             element = document.createElement("input");
@@ -27,10 +31,12 @@ export default class controlExternals {
 
                 element.addEventListener("change", ()=>{
                     other.value = element.value
+                    emitChange({id, data: element.value})
                 })
 
                 other.addEventListener("change", ()=>{
                     element.value = other.value
+                    emitChange({id, data: element.value})
                 })
 
             }
