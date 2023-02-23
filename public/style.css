@@ -124,6 +124,30 @@ header {
     background-color: initial;
 }
 
+.module > input[type='range']{
+    appearance: none;
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: 100vmax;
+    height: 1.5vmax;
+
+    opacity: .9;
+
+    transition: opacity 200ms;
+
+}
+
+.module > input[type='range']:hover{
+    opacity: 1;
+}
+
+.module > input[type='range']::-webkit-slider-thumb{
+    appearance: none;
+    background-color: var(--secundary-color);
+    height: 2vmax;
+    width: 2vmax;
+    border-radius: 100%;
+}
+
 .module > button {
     /* Colors */
     background-color: var(--secundary-color);
@@ -141,7 +165,7 @@ header {
 }
 
 .module > button > img {
-    height: 4vh;
+    height: 25px;
 }
 
 .module > button:hover {
