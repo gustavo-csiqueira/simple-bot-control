@@ -11,6 +11,11 @@ export default function getConfigs(path){
 
     });
 
+    configs.Sensors.forEach(sensor => {
+        if(!sensor.id) sensor.id = uuid_v4();
+
+    });
+
     const newContent = JSON.stringify(configs)
 
     writeFileSync(path, newContent)
