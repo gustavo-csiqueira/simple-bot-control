@@ -1,16 +1,32 @@
 import controlExternals from "./controlExternals.js";
 
+function createModule({ id, type, label, range }){
+    const new_module = document.createElement("div");
+    new_module.classList.add("module");
+    new_module.id = id;
+    new_module.name = id;
+    new_module.innerHTML = `<label for=${id}>${label}</label>`;
+
+    return new_module
+
+}
+
 export function createActuatorModule({ id, type, label, range }, document) {
     const actuatorModulesGroup = document.getElementById("actuators");
 
-    const actuator_module = document.createElement("div");
-    actuator_module.classList.add("module");
-    actuator_module.id = id;
-    actuator_module.name = id;
-    actuator_module.innerHTML = `<label for=${id}>${label}</label>`;
+    const actuator_module = createModule({ id, type, label, range })
 
     actuatorModulesGroup.appendChild(actuator_module);
     new controlExternals({range, father: actuator_module, document, emitChange, id});
+
+}
+
+export function createSensorModule(data, document) {
+    const sensorModulesGroup = document.getElementById("sensors");
+
+    const sensor_module = createModule(data)
+
+    sensorModulesGroup.appendChild(sensor_module);
 
 }
 

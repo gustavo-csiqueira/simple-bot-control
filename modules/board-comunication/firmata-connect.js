@@ -20,12 +20,14 @@ export default class boardController {
             this.configureAll()
             console.log("Board ready")
 
-            Sensors.forEach(({pin, range, type }) => {
+            Sensors.forEach(({id, pin, range, type }) => {
                 const sensor = new johnny_five.Sensor.Digital(pin[0])
 
                     if(type === "digital-sensor")
                         sensor.on("change", ()=>{
-                            console.log(sensor.value)
+                            const {value} = sensor
+                            console.log(value)
+
                         })
                     else {
                         sensor.on("change", ()=>{
@@ -88,7 +90,7 @@ export default class boardController {
     }
 
     emitRead(data){
-        //if(this.readAllEmit) this.readAllEmit(data)
+        if(this.readAllEmit) this.readAllEmit(data)
         
     }
     

@@ -1,4 +1,4 @@
-import { createActuatorModule, listenActiveObjects } from "./createActuatorModule.js"
+import { createActuatorModule, createSensorModule, listenActiveObjects } from "./createActuatorModule.js"
 
 const socket = io()
 
@@ -7,6 +7,10 @@ socket.on("config", (data)=>{
 
     data.Actuators.forEach(actuator => {
         createActuatorModule(actuator, document)
+    });
+
+    data.Sensors.forEach(sensor => {
+        createSensorModule(sensor, document)
     });
     
     document.querySelectorAll(".module > input").forEach( input => {

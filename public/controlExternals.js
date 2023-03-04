@@ -11,7 +11,6 @@ export default class controlExternals {
             element = document.createElement("button");
             const powerIcon = document.createElement("img")
             powerIcon.setAttribute("src", `${ICONS_DIR}power_ico.svg`)
-            console.log(powerIcon)
             element.appendChild(powerIcon)
 
             element.addEventListener("click", ()=>{
