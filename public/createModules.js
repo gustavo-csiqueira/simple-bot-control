@@ -30,6 +30,15 @@ export function createSensorModule(data, document) {
     const statusIndicator = document.createElement("div")
     statusIndicator.classList.add("status-indicator")
 
+    const statusIndicatorChange = {
+        on: ()=>{
+
+        },
+        off: ()=>{
+            
+        }
+    }
+
     sensor_module.appendChild(statusIndicator)
 
     sensorModulesGroup.appendChild(sensor_module);

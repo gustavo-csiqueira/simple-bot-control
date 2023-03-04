@@ -24,4 +24,6 @@ socket.on("config", (data)=>{
 
 })
 
-
+socket.on("change-sensor", data => {
+    console.log(data)
+})

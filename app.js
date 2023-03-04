@@ -23,7 +23,12 @@ app.use(express.static(pagesPath))
 io.on("connection", (socket)=>{
     socket.emit("config", getConfigs(configPath))
 
+    board_controller.readAll((data)=>(
+        socket.emit("change-sensor", data)
+    ))
+
     socket.on("change", (data)=>{
+        
         board_controller.toggle(data)
     })
 

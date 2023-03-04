@@ -2,7 +2,7 @@ import johnny_five from "johnny-five"
 import getConfigs from "./getConfigs.js";
 
 export default class boardController {
-    board; externals={ actuators: new Map, sensors: new Map };config;
+    board; externals={ actuators: new Map, sensors: new Map };config; readAllEmit;
 
     constructor(config_filepath){
         try{
@@ -20,13 +20,15 @@ export default class boardController {
             this.configureAll()
             console.log("Board ready")
 
-            Sensors.forEach(({id, pin, range, type }) => {
+            Sensors.forEach((data) => {
+                const {id, pin, range, type } = data
                 const sensor = new johnny_five.Sensor.Digital(pin[0])
 
                     if(type === "digital-sensor")
                         sensor.on("change", ()=>{
                             const {value} = sensor
-                            console.log(value)
+                            data.value = value
+                            this.emitRead(data)
 
                         })
                     else {
