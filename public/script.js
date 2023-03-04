@@ -3,6 +3,8 @@ import { createActuatorModule, listenActiveObjects } from "./createActuatorModul
 const socket = io()
 
 socket.on("config", (data)=>{
+    document.querySelectorAll(".modules-group").forEach(moduleGroup => { moduleGroup.innerHTML = "" })
+
     data.Actuators.forEach(actuator => {
         createActuatorModule(actuator, document)
     });

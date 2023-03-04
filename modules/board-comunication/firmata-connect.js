@@ -16,18 +16,30 @@ export default class boardController {
         this.config = getConfigs(config_filepath)
 
         this.board.on("ready", ()=>{
+            const {Sensors} = this.config
             this.configureAll()
             console.log("Board ready")
-            
 
+            Sensors.forEach(({pin, range, type }) => {
+                const sensor = new johnny_five.Sensor.Digital(pin[0])
+
+                    if(type === "digital-sensor")
+                        sensor.on("change", ()=>{
+                            console.log(sensor.value)
+                        })
+                    else {
+                        sensor.on("change", ()=>{
+                            console.log(sensor.scaleTo(0, range))
+                        })
+                    }
+            })
+            
         })
 
     }
 
     configureAll(){
         const { Actuators, Sensors } = this.config
-
-        console.log(Actuators)
 
         const createActuator = {
             led: ({id, pin})=>{
@@ -38,6 +50,7 @@ export default class boardController {
             }
 
         }
+
         
         Actuators.forEach(actuator => {
             createActuator[actuator.type](actuator)
@@ -68,6 +81,15 @@ export default class boardController {
                 break;
         
         } 
+    }
+
+    readAll(cb){
+        this.readAllEmit = cb
+    }
+
+    emitRead(data){
+        //if(this.readAllEmit) this.readAllEmit(data)
+        
     }
     
 }

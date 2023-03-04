@@ -12,6 +12,8 @@ export default function getConfigs(path){
     });
 
     configs.Sensors.forEach(sensor => {
+        if(!sensor.range) sensor.range = 100;
+
         if(!sensor.id) sensor.id = uuid_v4();
 
     });

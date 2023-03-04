@@ -23,9 +23,9 @@ app.use(express.static(pagesPath))
 io.on("connection", (socket)=>{
     socket.emit("config", getConfigs(configPath))
 
-    socket.on("change", (data)=>{
+    /* socket.on("change", (data)=>{
         board_controller.toggle(data)
-    })
+    }) */
 
 })
 
