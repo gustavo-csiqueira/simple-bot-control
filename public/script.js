@@ -1,4 +1,4 @@
-import { createActuatorModule, createSensorModule, listenActiveObjects } from "./createActuatorModule.js"
+import { createActuatorModule, createSensorModule, listenActiveObjects } from "./createModules.js"
 
 const socket = io()
 

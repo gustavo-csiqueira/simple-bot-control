@@ -23,8 +23,14 @@ export function createActuatorModule({ id, type, label, range }, document) {
 
 export function createSensorModule(data, document) {
     const sensorModulesGroup = document.getElementById("sensors");
+    const {type, range} = data
 
     const sensor_module = createModule(data)
+
+    const statusIndicator = document.createElement("div")
+    statusIndicator.classList.add("status-indicator")
+
+    sensor_module.appendChild(statusIndicator)
 
     sensorModulesGroup.appendChild(sensor_module);
 

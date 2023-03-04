@@ -182,5 +182,13 @@ header {
 
 }
 
+.module > .status-indicator {
+    background-color: rgb(47, 255, 75);
+    height: 2vmax;
+    width: 2vmax;
+    border-radius: 1vmax;
+
+}
+
 #controller { grid-area: 1 / 1 / 11 / 15; }
 #sensors { grid-area: 1 / 15 / 11 / 21; }
