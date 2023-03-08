@@ -24,6 +24,25 @@ socket.on("config", (data)=>{
 
 })
 
-socket.on("change-sensor", data => {
-    console.log(data)
+socket.on("change-sensor", ({id, type, value}) => {
+    const status = document.getElementById(id).querySelector(".status-indicator")
+
+    const statusIndicatorChange = {
+        "digital-sensor": ()=>{
+            if(value === 1){
+                status.style.backgroundColor = "rgb(0, 196, 0)"
+                status.textContent = "ATIVO"
+
+            }else {
+                status.style.backgroundColor = "rgb(255, 47, 47)"
+                status.textContent = "INATIVO"
+            }
+        },
+        "analog-sensor": ()=>{
+            
+        }
+    }
+
+    statusIndicatorChange[type]()
+
 })

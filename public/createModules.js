@@ -29,15 +29,8 @@ export function createSensorModule(data, document) {
 
     const statusIndicator = document.createElement("div")
     statusIndicator.classList.add("status-indicator")
-
-    const statusIndicatorChange = {
-        on: ()=>{
-
-        },
-        off: ()=>{
-            
-        }
-    }
+    statusIndicator.textContent = "INATIVO"
+    
 
     sensor_module.appendChild(statusIndicator)
 

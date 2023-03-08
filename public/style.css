@@ -183,10 +183,13 @@ header {
 }
 
 .module > .status-indicator {
-    background-color: rgb(47, 255, 75);
-    height: 2vmax;
-    width: 2vmax;
+    background-color: rgb(255, 47, 47);
+    color: var(--main-color);
+    
+    padding: 5px;
     border-radius: 1vmax;
+
+    font-weight: 500;
 
 }
 
