@@ -10,10 +10,10 @@
     box-sizing:border-box;
     margin: 0px;
     padding: 0px;
+    font-family: monospace;
 }
 
 body {
-    font-family: monospace;
     background-color: var(--bg-color);
 
     display: flex;
@@ -42,6 +42,51 @@ header {
     align-items: center;
 
 
+}
+
+button {
+    /* Colors */
+    background-color: var(--secundary-color);
+    color: var(--main-color);
+
+    /* Space */
+    padding: 5px;
+
+    /* Border */
+    border-radius: 10px;
+
+    /* Transitions */
+    transition: all 500ms;
+
+}
+
+button:hover {
+    /* Colors */
+    background-color: var(--tertiary-color);
+    color: var(--main-color);
+
+}
+
+button:active {
+    /* Colors */
+    background-color: var(--main-color);
+    color: var(--tertiary-color);
+
+}
+
+#toolbar {
+    display: flex;
+    
+    gap:5px;
+
+    height: 100%;
+
+}
+
+#toolbar > button {
+    font-weight: 500;
+
+    height: 100%;
 }
 
 #dashboard {
@@ -149,37 +194,16 @@ header {
 }
 
 .module > button {
-    /* Colors */
-    background-color: var(--secundary-color);
-    color: var(--main-color);
-
     /* Space */
     padding: 7px;
 
     /* Border */
     border-radius: 15px;
 
-    /* Transitions */
-    transition: all 500ms;
-
 }
 
 .module > button > img {
     height: 25px;
-}
-
-.module > button:hover {
-    /* Colors */
-    background-color: var(--tertiary-color);
-    color: var(--main-color);
-
-}
-
-.module > button:active {
-    /* Colors */
-    background-color: var(--main-color);
-    color: var(--tertiary-color);
-
 }
 
 .module > .status-indicator {
