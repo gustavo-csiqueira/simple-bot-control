@@ -36,6 +36,11 @@ export default class boardController {
                             console.log(sensor.scaleTo(0, range))
                         })
                     }
+
+                /* const servo = new johnny_five.Servo(9)
+                servo.sweep()  */
+
+
             })
             
         })
@@ -49,8 +54,8 @@ export default class boardController {
             led: ({id, pin})=>{
                 this.externals.actuators[id] = new johnny_five.Led(pin[0])
             },
-            servo: ({id, pin})=>{
-                this.externals.actuators[id] = new johnny_five.Servo(pin[0])
+            servo: ({id, pin, range})=>{
+                this.externals.actuators[id] = new johnny_five.Servo({pin:pin[0], range:[0, range]})
             }
 
         }
@@ -64,27 +69,29 @@ export default class boardController {
     }
 
     toggle({id, data}){
-        const external = this.externals.actuators[id]
-        let type;
+        try{
+            const external = this.externals.actuators[id]
+            let type;
 
-        this.config.Actuators.forEach(({id: ID, type: TYPE}) => {
-            if(id === ID){
-                type = TYPE
-                
-            }
-        })
+            this.config.Actuators.forEach(({id: ID, type: TYPE}) => {
+                if(id === ID){
+                    type = TYPE
+                    
+                }
+            })
 
-        console.log(`ID: ${id} - TYPE: ${type} - DATA: ${data}`)
+            console.log(`ID: ${id} - TYPE: ${type} - DATA: ${data}`)
 
-        switch(type) {
-            case "led":
-                external.toggle()
-                break;
-            case "servo":
-                external.to(data)
-                break;
-        
-        } 
+            switch(type) {
+                case "led":
+                    external.toggle()
+                    break;
+                case "servo":
+                    external.to(data, 1000)
+                    break;
+            
+            } 
+        }catch{ console.log("ERROR") }
     }
 
     readAll(cb){

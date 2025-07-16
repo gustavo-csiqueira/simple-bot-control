@@ -217,5 +217,9 @@ button:active {
 
 }
 
+.module .config {
+    
+}
+
 #controller { grid-area: 1 / 1 / 11 / 15; }
 #sensors { grid-area: 1 / 15 / 11 / 21; }

@@ -2,7 +2,11 @@ import { createActuatorModule, createSensorModule, listenActiveObjects } from ".
 
 const socket = io()
 
+let botData;
+
 socket.on("config", (data)=>{
+    botData = data
+
     document.querySelectorAll(".modules-group").forEach(moduleGroup => { moduleGroup.innerHTML = "" })
 
     data.Actuators.forEach(actuator => {
@@ -45,4 +49,10 @@ socket.on("change-sensor", ({id, type, value}) => {
 
     statusIndicatorChange[type]()
 
+})
+
+const config_button = document.getElementById("btn-config")
+
+config_button.addEventListener("click", ()=>{
+    console.log(botData)
 })

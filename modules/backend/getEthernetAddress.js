@@ -1,7 +1,7 @@
 import {networkInterfaces} from 'os'
 
 export default function getEthernetAddress() {
-    const ETHERNET_INTERFACE_NAME = "wlp1s0";
+    const ETHERNET_INTERFACE_NAME = "enp2s0";
     const interfaces = networkInterfaces();
     const ethernetInterface = interfaces[ETHERNET_INTERFACE_NAME];
 
