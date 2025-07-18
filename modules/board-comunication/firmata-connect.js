@@ -10,7 +10,9 @@ export default class boardController {
             console.log("Board connected")
             
         }catch{
-            console.log("Board not connected")
+            console.log("No board connected.. Please connect device and restart the application")
+            process.exit(1)
+    
         }
         
         this.config = getConfigs(config_filepath)
