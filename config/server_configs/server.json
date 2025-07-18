@@ -1,0 +1,5 @@
+{
+    "ethernet-interface": "enp2s0",
+    "port": 2999,
+    "local": false
+}
