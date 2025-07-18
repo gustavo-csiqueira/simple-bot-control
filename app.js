@@ -17,11 +17,11 @@ const io = new Server(httpServer)
 const pagesPath = url.fileURLToPath(new URL("./public", import.meta.url))
 const configPath = url.fileURLToPath(new URL("config/bots_configs/bot1_config.json", import.meta.url))
 
-//const board_controller = new boardController(configPath)
+const board_controller = new boardController(configPath)
 
 app.use(express.static(pagesPath))
 
-/* io.on("connection", (socket)=>{
+io.on("connection", (socket)=>{
     socket.emit("config", getConfigs(configPath))
 
     board_controller.readAll((data)=>(
@@ -33,7 +33,7 @@ app.use(express.static(pagesPath))
         board_controller.toggle(data)
     })
 
-}) */
+})
 
 httpServer.listen(port, address, ()=>{
     console.log(`Listening on http://${address}:${port}`)
